@@ -10,6 +10,22 @@ fs = require('fs');
 var input = fs.readFileSync(fileName).toString();
 
 //Create array of all sample values, separated by line breaks (still Strings)
-var calcValues = input.split('\r\n');
+var fillVals = input.split('\r\n');
 
-console.log(calcValues);
+//Initialize array for calculation
+var calcVals = [];
+
+//Values for loop
+var n;
+var counter = 0;
+
+for (n of fillVals) {
+    var tempVal = n;
+    tempVal = tempVal.split(/-| |: /);
+    
+    calcVals[counter] = tempVal;
+
+    counter = counter + 1;
+}
+
+console.log(calcVals);
