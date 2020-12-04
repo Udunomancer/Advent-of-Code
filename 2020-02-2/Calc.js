@@ -30,32 +30,23 @@ for (n of fillVals) {
     var tempVal = n;
     tempVal = tempVal.split(/-| |: /);
 
-    //Variable to collect total number of key character
-    var ruleCounter = 0;
+    //Convert password requirements to array positions
+    var sptOne = parseInt(tempVal[0], 10) - 1;
+    var sptTwo = parseInt(tempVal[1], 10) - 1;
 
-    //Loop over the password string
-    for (i=0; i < tempVal[3].length; i++) {
+    //If the character at spot one is equal to the key character and the character at spot 2 is not (OR vice versa)...
+    if ((tempVal[3].charAt(sptOne) == tempVal[2] && tempVal[3].charAt(sptTwo) != tempVal[2]) 
+    || (tempVal[3].charAt(sptOne) != tempVal[2] && tempVal[3].charAt(sptTwo) == tempVal[2])) {
         
-        //If the current character in the password matches the key character
-        if (tempVal[3].charAt(i) == tempVal[2]) {
-            
-            //Increment the counter by 1
-            ruleCounter = ruleCounter + 1;
-        }
-    }
-
-    //If the total number of key charcters conforms to the password rules
-    if (ruleCounter >= tempVal[0] && ruleCounter <= tempVal[1]) {
-        
-        //Establish it as a conforming password and increment total correct passwords by one
+        //Establish password as conforming and increment total conforming passwords by 1
         tempVal[4] = "Conforming";
         rightPass = rightPass + 1;
-    
-    //Else   
+
+    //Otherwise    
     } else {
 
-        //Establish it as a non-conforming password and increment total incorrect passwords by one 
-        tempVal[4] = "Non-conforming"
+        //Establish password as non-conforming and increment total non-conforming passwords by 1
+        tempVal[4] = "Non-conforming";
         wrongPass = wrongPass + 1;
     }
 
