@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form" onsubmit="getInput()">
+      <textarea id="calcValues"></textarea>>
+      <input type="submit" onclick="name()" />
+    </form>
+    <p id="Output">Calculated</p>
+    <script>
+      function getInput() {
+        var input = document.getElementById("calcValues").value;
+        //Create array of all sample values, separated by line breaks (still Strings)
+        calcValue = [];
+        calcValue = input.split("\r\n");
+        document.write(calcValue);
+        //document.getElementByID('Output').innerHTML = 'input';
+        
+        //Empty variable for answer value (probably not necessary)
+        /*var answerVal = 0;
+
+        //Loop through all values in the input
+        var n;
+        loop1: for (n of input) {
+          //convert current array value into Integer
+          var tempVal1 = parseInt(n, 10);
+          var m;
+
+          //For every value in the Input, run another loop over all values in the input
+          loop2: for (m of input) {
+            //convert current array value into Integer
+            var tempVal2 = parseInt(m, 10);
+
+            //If the current values of both loops add up to 2020...
+            if (tempVal1 + tempVal2 == 2020) {
+              //Set answerVal equal to the product of the two numbers
+              answerVal = tempVal1 * tempVal2;
+              //and break both loops.
+              break loop1;
+            }
+          }
+        }
+
+        document.write(answerVal);*/
+      }
+    </script>
+  </body>
+</html>
